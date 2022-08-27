@@ -8,12 +8,8 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@tiptap/extension-document": "^2.0.0-beta.17",
     "@tiptap/extension-font-family": "^2.0.0-beta.24",
-    "@tiptap/extension-heading": "^2.0.0-beta.29",
     "@tiptap/extension-image": "^2.0.0-beta.30",
-    "@tiptap/extension-paragraph": "^2.0.0-beta.26",
-    "@tiptap/extension-text": "^2.0.0-beta.17",
     "@tiptap/extension-text-align": "^2.0.0-beta.31",
     "@tiptap/extension-text-style": "^2.0.0-beta.26",
     "@tiptap/extension-underline": "^2.0.0-beta.25",

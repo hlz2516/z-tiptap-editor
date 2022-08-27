@@ -1,5 +1,5 @@
 <template>
-  <div id="tiptap-container" @click.capture="menuShow = false">
+  <div id="tiptap-container" @click.capture="menuShow = false" ref="tiptap-container">
     <div class="wrapper">
       <div
         class="menu"
@@ -200,6 +200,7 @@ import FontSizeItem from "../components/FontSizeItem.vue";
 import TextAlignItem from '../components/TextAlignItem.vue';
 
 export default {
+  name:'Tiptap',
   components: {
     EditorContent,
     BubbleMenu,
@@ -229,13 +230,17 @@ export default {
       }
     },
     openSubMenu(event, type) {
+      console.dir(this.$refs['tiptap-container']);
       this.$refs.menu.style.setProperty(
         "left",
-        event.target.offsetLeft - this.$refs.funcbox.scrollLeft + 10 + "px"
+        event.target.offsetLeft - 
+        this.$refs.funcbox.scrollLeft + 
+        this.$refs['tiptap-container'].offsetLeft + 10 + "px"
       );
       this.$refs.menu.style.setProperty(
         "top",
-        event.target.offsetTop + event.target.offsetHeight + 10 + "px"
+        event.target.offsetTop + event.target.offsetHeight + 
+        this.$refs['tiptap-container'].offsetTop + "px"
       );
 
       if (type === "heading") {
@@ -423,9 +428,13 @@ export default {
 .inner {
   width: 1350px;
   height: 100%;
-  position: relative;
+  /* position: relative; */
+  position: absolute;
   left: 0;
   margin: 0 4px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 /* >>>表示穿透，为了能修改tiptap的prose样式，在scoped的情况下需要穿透，下同 */
 div >>> .prose {
@@ -452,7 +461,6 @@ div >>> .prose:focus {
   background-color: rgb(250, 250, 250);
   border-radius: 4px;
   margin: 6px 2px;
-  float: left;
   font-size: 12px;
 }
 

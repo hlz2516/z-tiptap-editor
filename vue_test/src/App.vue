@@ -1,6 +1,14 @@
 <template>
   <div id="app">
-   <Tiptap v-model="content" />
+    
+    <div class="box1">
+      <div></div>
+      <!-- <tiptap v-model="content" /> -->
+      <div>
+        <tiptap v-model="content" />
+      </div>
+    </div>
+    <div></div>
   </div>
 </template>
 
@@ -39,9 +47,25 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  width: 800px;
-  height: 300px;
+  width: 1200px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
 }
 
+#app>div{
+  flex: 1;
+}
 
+.box1{
+  display: flex;
+  flex-direction: row;
+  flex-flow: nowrap;
+}
+
+.box1>div{
+  flex: 1;
+}
 </style>
